@@ -1,0 +1,27 @@
+# Pushing a version tag builds the kit zip and publishes it as a GitHub Release:
+#   git tag v1.1.0 && git push origin v1.1.0
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build the zip
+        run: |
+          mkdir -p dist
+          cp -R folder dist/ideas-blueprint
+          cd dist && zip -rqX "ideas-blueprint-$GITHUB_REF_NAME.zip" ideas-blueprint
+
+      - name: Publish the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "$GITHUB_REF_NAME" "dist/ideas-blueprint-$GITHUB_REF_NAME.zip" --generate-notes
