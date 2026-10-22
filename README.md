@@ -31,7 +31,7 @@ git tag v1.1.0              # the next version number
 git push origin v1.1.0
 ```
 
-About a minute later, open **Releases → v1.1.0 → Assets** and download `ideas-blueprint-v1.1.0.zip`. That is the file to share or sell. The **Source code** archives on the same page are this private repo, never the product.
+About a minute later, open **Releases → v1.1.0 → Assets** and download `ideas-blueprint-v1.1.0.zip`. That is the file to share or sell. The **Source code** archives on the same page are this repo's source, never the product.
 
 **Version numbers:** patch (`v1.0.1`) for fixes and wording, minor (`v1.1.0`) for new or reworked content, major (`v2.0.0`) for a restructure.
 
